@@ -2,7 +2,7 @@ package ConcertReservation2;
 
 import java.util.Scanner;
 
-public class ConReserve_System {
+public class ConReserve_System {         // UI 시스템
 	Scanner sc = new Scanner(System.in);
 	private int num,num2;
 	private String name;
@@ -37,7 +37,7 @@ public class ConReserve_System {
 		
 		}
 	}
-	public void resevation() {
+	public void resevation() {  //예약
 		System.out.print("좌석구분 S(1), A(2), B(3)>>");
 		num = sc.nextInt();
 		switch(num) {
@@ -55,7 +55,7 @@ public class ConReserve_System {
 				break;
 		}
 	}
-	public void cancel() {
+	public void cancel() {  //취소
 		System.out.print("좌석구분 S(1), A(2), B(3)>>");
 		num = sc.nextInt();
 		switch(num) {
@@ -73,17 +73,17 @@ public class ConReserve_System {
 				break;
 		}
 	}
-	public void loockup() {
+	public void loockup() {  //조회
 		for(int i=0; i<Seat.length; i++) {
 			Seat[i].VIEW(Rank[i]);
 		}
 		System.out.println("<<<조회를 완료하였습니다.>>>");
 	}
-	public void finish() {
+	public void finish() {  //종료
 		System.out.println("프로그램을 종료합니다.");
 		sc.close();
 	}
-	public void subsystem( ) {
+	public void subsystem( ) {  //예약 시스템
 		System.out.print("이름>>");
 		name = sc.next();
 		System.out.print("번호>>");
@@ -91,7 +91,7 @@ public class ConReserve_System {
 		Seat[num-1].setName(name);
 		Seat[num-1].SeatReservation(num2-1);
 	}
-	public void cancelSubsystem() {
+	public void cancelSubsystem() {  //취소 시스템
 		num--;
 		Seat[num].VIEW(Rank[num]);
 		System.out.print("이름>>");
