@@ -4,26 +4,25 @@ import java.util.Scanner;
 public class ConcertReservation { 
     public static void main(String[] args) {  
            
-       String Seat[] = new String[30];  // 30°³ÀÇ ÁÂ¼® ¼³Á¤ ¹× ÃÊ±âÈ­
+       String Seat[] = new String[30];  // 30ê°œì˜ ì¢Œì„ ì„¤ì •
 
-       for (int i = 0; i < 30; i++) { 
+       for (int i = 0; i < 30; i++) { // ë°°ì—´ì˜ ê¸°ë³¸ê°’ì„ "---"ë¡œ ì´ˆê¸°í™”
            Seat[i] = "---"; 
        } 
 	   String Type[] = { "S", "A", "B" };
        String input = null; 
        Scanner scanner = new Scanner(System.in); 
-       System.out.println("¸íÇ°ÄÜ¼­Æ®È¦ ¿¹¾à ½Ã½ºÅÛÀÔ´Ï´Ù.");
+       System.out.println("ëª…í’ˆì½˜ì„œíŠ¸í™€ ì˜ˆì•½ ì‹œìŠ¤í…œì…ë‹ˆë‹¤.");
        while (true) { 
-             System.out.print("¿¹¾à:1, Á¶È¸:2, Ãë¼Ò:3, ³¡³»±â:4>>"); 
+             System.out.print("ì˜ˆì•½:1, ì¡°íšŒ:2, ì·¨ì†Œ:3, ëë‚´ê¸°:4>>"); 
              input = scanner.next(); 
-             if ("1".equals(input)) { 
-                   // ¿¹¾à 
+             if ("1".equals(input)) {   // ì˜ˆì•½
                    while (true) { 
                          try { 
-                               System.out.print("ÁÂ¼® ±¸ºĞ S(1), A(2), B(3)>>"); 
+                               System.out.print("ì¢Œì„ êµ¬ë¶„ S(1), A(2), B(3)>>"); 
                                int typenum = scanner.nextInt(); 
                                if (typenum==1 && typenum==2 && typenum==3) { 
-                                     System.out.println("¾ø´Â ÁÂ¼® Å¸ÀÔÀÔ´Ï´Ù."); 
+                                     System.out.println("ì—†ëŠ” ì¢Œì„ íƒ€ì…ì…ë‹ˆë‹¤."); 
                                      continue;
                               }
                                System.out.print(Type[typenum-1] + ">> ");
@@ -31,27 +30,26 @@ public class ConcertReservation {
                             	   System.out.print(Seat[(typenum-1)*10 + i] + " ");
                                } 
                                System.out.print("\n");
-                               System.out.print("ÀÌ¸§>>"); 
+                               System.out.print("ì´ë¦„>>"); 
                                String name = scanner.next();
-                               System.out.print("¹øÈ£>>"); 
+                               System.out.print("ë²ˆí˜¸>>"); 
                                int num = scanner.nextInt(); 
                                if (num <= 0 || num > 10) { 
-                                     System.out.println("¾ø´Â ÁÂ¼® ¹øÈ£ÀÔ´Ï´Ù."); 
+                                     System.out.println("ì—†ëŠ” ì¢Œì„ ë²ˆí˜¸ì…ë‹ˆë‹¤."); 
                                      continue; 
                               } 
                               if (Seat[(typenum-1)*10+num-1] != "---") { 
-                                    System.out.println("ÀÌ¹Ì ¿¹¾àµÈ ÁÂ¼®ÀÔ´Ï´Ù."); 
+                                    System.out.println("ì´ë¯¸ ì˜ˆì•½ëœ ì¢Œì„ì…ë‹ˆë‹¤."); 
                                     continue; 
                              } 
                          Seat[(typenum-1)*10+num-1] = name;
                          break; 
                      } catch (InputMismatchException e) { 
-                         System.out.println("Àß¸øµÈ ÀÔ·Â.");
+                         System.out.println("ì˜ëª»ëœ ì…ë ¥.");
                          break;
                   } 
               } 
-          } else if ("2".equals(input)) { 
-              // Á¶È¸ 
+          } else if ("2".equals(input)) {  // ì¡°íšŒ 
               System.out.print("S>> ");
               for (int i = 0; i < 10; i++) { 
            	  System.out.print(Seat[i] + " ");
@@ -66,24 +64,21 @@ public class ConcertReservation {
               for (int i = 0; i < 10; i++) { 
            	  System.out.print(Seat[i+20] + " ");
               }
-              System.out.print("\n");
-              System.out.println("<<<Á¶È¸¸¦ ¿Ï·áÇÏ¿´½À´Ï´Ù.>>>");
+              System.out.println("\n<<<ì¡°íšŒë¥¼ ì™„ë£Œí•˜ì˜€ìŠµë‹ˆë‹¤.>>>");
               
-          } else if ("3".equals(input)) { 
-              // Ãë¼Ò 
+          } else if ("3".equals(input)) {  // ì·¨ì†Œ
         	  try {
-                  System.out.print("ÁÂ¼® S:1, A:2, B:3>>"); 
+                  System.out.print("ì¢Œì„ S:1, A:2, B:3>>"); 
                   int typenum = scanner.nextInt(); 
                   if (typenum==1 && typenum==2 && typenum==3) { 
-                        System.out.println("¾ø´Â ÁÂ¼® Å¸ÀÔÀÔ´Ï´Ù."); 
+                        System.out.println("ì—†ëŠ” ì¢Œì„ íƒ€ì…ì…ë‹ˆë‹¤."); 
                         continue; 
                  }
                   System.out.print(Type[typenum-1] + ">> ");
                   for (int i = 0; i < 10; i++) { 
                	   System.out.print(Seat[(typenum-1)*10 + i] + " ");
                   } 
-                  System.out.print("\n");
-                  System.out.print("ÀÌ¸§>>"); 
+                  System.out.print("/nì´ë¦„>>"); 
                   String name = scanner.next();
                   int count = 0;
                   for (int i = 0; i < 10; i++) { 
@@ -92,17 +87,17 @@ public class ConcertReservation {
                 		  count++;
                       }
                   }
-                  if (count==0) System.out.println("ÀÏÄ¡ÇÏ´Â ÀÌ¸§ÀÌ ¾ø½À´Ï´Ù.");
+                  if (count==0) System.out.println("ì¼ì¹˜í•˜ëŠ” ì´ë¦„ì´ ì—†ìŠµë‹ˆë‹¤.");
                   count = 0;
         	  } catch (InputMismatchException e) { 
-                  System.out.println("Àß¸øµÈ ÀÔ·Â.");
+                  System.out.println("ì˜ëª»ëœ ì…ë ¥.");
                   break;
            } 
           } else if ("4".equals(input)) { 
-              System.out.println("Á¾·áÇÕ´Ï´Ù."); 
+              System.out.println("ì¢…ë£Œí•©ë‹ˆë‹¤."); 
               break; 
           } else { 
-              System.out.println("Àß¸øµÈ ÀÔ·Â."); 
+              System.out.println("ì˜ëª»ëœ ì…ë ¥."); 
           } 
       } 
       scanner.close(); 
